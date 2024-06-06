@@ -6,7 +6,7 @@ import YiFooter from '@/components/YiFooter/index.vue'
 <template>
   <div class="YiFeiHome">
     <yi-header></yi-header>
-    <video src="@/assets/images/daytime.mp4" autoplay="true" muted="true" loop="true" class="bg-video" height="840"></video>
+    <video src="@/assets/images/daytime.mp4" autoplay="true" muted="true" loop="true" class="bg-video"></video>
     <router-view></router-view>
     <yi-footer></yi-footer>
   </div>
