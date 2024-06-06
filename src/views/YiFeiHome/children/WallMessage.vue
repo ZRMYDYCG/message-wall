@@ -36,6 +36,30 @@ onMounted(() => {
     getNoteWidth()
   })
 })
+
+// 添加留言按钮
+let addBtnBottom = ref('30px')
+
+const scrollBottom = () => {
+  // 滚动条距离顶部的高度
+  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+  // 屏幕高度
+  let clientHeight = document.documentElement.clientHeight
+  // 内容高度
+  let scrollHeight = document.documentElement.scrollHeight
+
+  if(scrollTop + clientHeight+230 >= scrollHeight) {
+    addBtnBottom.value = (scrollTop + clientHeight + 230 - scrollHeight) + 'px'
+  } else {
+    addBtnBottom.value = '30px'
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    scrollBottom()
+  })
+})
 </script>
 
 <template>
@@ -52,6 +76,9 @@ onMounted(() => {
       <template v-for="(item, index) in cardData" :key="index">
         <yi-card class="card-item" :note="item" width="288px"></yi-card>
       </template>
+    </div>
+    <div class="add">
+      <span>添加</span>
     </div>
   </div>
 </template>
@@ -103,6 +130,22 @@ onMounted(() => {
     .card-item {
       margin: 6px;
     }
+  }
+
+  .add {
+    width: 56px;
+    height: 56px;
+    background-color: $gray-1;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
+    border-radius: 28px;
+    position: fixed;
+    right: 30px;
+    bottom: v-bind(addBtnBottom);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $gray-10;
+    transition: all .3s;
   }
 }
 </style>
