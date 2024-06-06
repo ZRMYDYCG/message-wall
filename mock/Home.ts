@@ -29,7 +29,113 @@ export default [
                         // 是否撤回
                         revoke: 0,
                         // 是否举报
-                        report: 0
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },
+                    {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 4,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },
+                    {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 4,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },
+                    {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 4,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },
+                    {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 4,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
                     },
                     {
                         // 创建时间
@@ -53,7 +159,84 @@ export default [
                         // 是否撤回
                         revoke: 0,
                         // 是否举报
-                        report: 0
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },        {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 0,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },        {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 0,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },        {
+                        // 创建时间
+                        moment: new Date(),
+                        // 留言 id
+                        id: 1,
+                        // 用户 id
+                        userId: 1,
+                        // 内容
+                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
+                        // 标签
+                        label: 0,
+                        // 用户昵称
+                        name: "一勺",
+                        // 点赞数
+                        like: 12,
+                        // 评论数
+                        comment: 4,
+                        // 背景色
+                        imgUrl: 0,
+                        // 是否撤回
+                        revoke: 0,
+                        // 是否举报
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
                     },
                     {
                         // 创建时间
@@ -77,7 +260,9 @@ export default [
                         // 是否撤回
                         revoke: 0,
                         // 是否举报
-                        report: 0
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
                     },        {
                         // 创建时间
                         moment: new Date(),
@@ -96,12 +281,15 @@ export default [
                         // 评论数
                         comment: 4,
                         // 背景色
-                        imgUrl: 0,
+                        imgUrl: 3,
                         // 是否撤回
                         revoke: 0,
                         // 是否举报
-                        report: 0
-                    },        {
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },
+                    {
                         // 创建时间
                         moment: new Date(),
                         // 留言 id
@@ -119,12 +307,15 @@ export default [
                         // 评论数
                         comment: 4,
                         // 背景色
-                        imgUrl: 0,
+                        imgUrl: 1,
                         // 是否撤回
                         revoke: 0,
                         // 是否举报
-                        report: 0
-                    },        {
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
+                    },
+                    {
                         // 创建时间
                         moment: new Date(),
                         // 留言 id
@@ -142,103 +333,13 @@ export default [
                         // 评论数
                         comment: 4,
                         // 背景色
-                        imgUrl: 0,
+                        imgUrl: 2,
                         // 是否撤回
                         revoke: 0,
                         // 是否举报
-                        report: 0
-                    },        {
-                        // 创建时间
-                        moment: new Date(),
-                        // 留言 id
-                        id: 1,
-                        // 用户 id
-                        userId: 1,
-                        // 内容
-                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
-                        // 标签
-                        label: 0,
-                        // 用户昵称
-                        name: "一勺",
-                        // 点赞数
-                        like: 12,
-                        // 评论数
-                        comment: 4,
-                        // 背景色
-                        imgUrl: 0,
-                        // 是否撤回
-                        revoke: 0,
-                        // 是否举报
-                        report: 0
-                    },        {
-                        // 创建时间
-                        moment: new Date(),
-                        // 留言 id
-                        id: 1,
-                        // 用户 id
-                        userId: 1,
-                        // 内容
-                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
-                        // 标签
-                        label: 0,
-                        // 用户昵称
-                        name: "一勺",
-                        // 点赞数
-                        like: 12,
-                        // 评论数
-                        comment: 4,
-                        // 背景色
-                        imgUrl: 0,
-                        // 是否撤回
-                        revoke: 0,
-                        // 是否举报
-                        report: 0
-                    },        {
-                        // 创建时间
-                        moment: new Date(),
-                        // 留言 id
-                        id: 1,
-                        // 用户 id
-                        userId: 1,
-                        // 内容
-                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
-                        // 标签
-                        label: 0,
-                        // 用户昵称
-                        name: "一勺",
-                        // 点赞数
-                        like: 12,
-                        // 评论数
-                        comment: 4,
-                        // 背景色
-                        imgUrl: 0,
-                        // 是否撤回
-                        revoke: 0,
-                        // 是否举报
-                        report: 0
-                    },        {
-                        // 创建时间
-                        moment: new Date(),
-                        // 留言 id
-                        id: 1,
-                        // 用户 id
-                        userId: 1,
-                        // 内容
-                        message: "日子就是这么的庸常，却有细碎的事物，如太阳碎碎的光芒，洒落其上。",
-                        // 标签
-                        label: 0,
-                        // 用户昵称
-                        name: "一勺",
-                        // 点赞数
-                        like: 12,
-                        // 评论数
-                        comment: 4,
-                        // 背景色
-                        imgUrl: 0,
-                        // 是否撤回
-                        revoke: 0,
-                        // 是否举报
-                        report: 0
+                        report: 0,
+                        // 类型: 留言 、 照片
+                        type: 0
                     }
                 ]
             }

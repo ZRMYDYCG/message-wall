@@ -19,6 +19,23 @@ onMounted(() => {
     cardData.value = res.data
   })
 })
+
+// 卡片宽度
+let noteWidth = ref(0)
+
+const getNoteWidth = () => {
+  let screenWidth = document.body.clientWidth
+  // 300 = 288 + 左右 margin 6px  => 当前屏幕宽度下可以放置卡片的数量 (screenWidth - 120) / 300  ((screenWidth - 120) / 300) * 300 => 卡片总宽度
+  noteWidth.value = Math.floor((screenWidth - 120) / 300) * 300
+}
+
+onMounted(() => {
+  getNoteWidth()
+  // 监听屏幕的变化
+  window.addEventListener('resize', () => {
+    getNoteWidth()
+  })
+})
 </script>
 
 <template>
@@ -31,9 +48,9 @@ onMounted(() => {
         <li class="item" :class="{ selected: isLabelSelected === index }" @click="changeLabelItem(index)">{{ item }}</li>
       </template>
     </ul>
-    <div class="card">
+    <div class="card" :style="{ width: noteWidth + 'px' }">
       <template v-for="(item, index) in cardData" :key="index">
-        <yi-card class="card-item" :note="item"></yi-card>
+        <yi-card class="card-item" :note="item" width="288px"></yi-card>
       </template>
     </div>
   </div>
@@ -80,9 +97,9 @@ onMounted(() => {
   .card {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    border: 1px solid red;
     padding-top: 28px;
+    margin: auto;
+
     .card-item {
       margin: 6px;
     }

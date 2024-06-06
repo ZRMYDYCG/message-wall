@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { label, cardColor } from '@/utils/data'
+import { dataOne } from '@/utils/formatTime'
 const props = defineProps({
   width: {
     type: String,
-    default: '288px'
+    default: '100%'
   },
   background: {
     type: String,
@@ -16,10 +18,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="yi-card" :style="{ width: props.width, background: props.background }">
+  <div class="yi-card" :style="{ width: props.width, background: cardColor[note.imgUrl] }">
     <div class="header">
-      <span class="time">{{ note.moment }}</span>
-      <span class="label">{{ note.label }}</span>
+      <span class="time">{{ dataOne(note.moment) }}</span>
+      <span class="label">{{ label[note.type][note.label] }}</span>
     </div>
     <p class="message">{{ note.message }}</p>
     <div class="footer">
