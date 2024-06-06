@@ -7,6 +7,10 @@ const props = defineProps({
   background: {
     type: String,
     default: 'rgba(252, 175, 162, 0.3)'
+  },
+  note: {
+    type: Object,
+    default: () => {}
   }
 })
 </script>
@@ -14,22 +18,22 @@ const props = defineProps({
 <template>
   <div class="yi-card" :style="{ width: props.width, background: props.background }">
     <div class="header">
-      <span class="time">2024.06.06</span>
-      <span class="label">信条</span>
+      <span class="time">{{ note.moment }}</span>
+      <span class="label">{{ note.label }}</span>
     </div>
-    <p class="message">我们用心聆听，用情回应。你的感受，我们感同身受。我们用心聆听，用情回应。你的感受，我们感同身受。我们用心聆听，用情回应。你的感受，我们感同身受。</p>
+    <p class="message">{{ note.message }}</p>
     <div class="footer">
       <div class="footer-left">
         <div class="item">
           <span>#</span>
-          <span class="value">3</span>
+          <span class="value">{{ note.like }}</span>
         </div>
         <div class="item">
           <span>#</span>
-          <span class="value">3</span>
+          <span class="value">{{ note.comment }}</span>
         </div>
       </div>
-      <div class="name">一勺</div>
+      <div class="name">{{ note.name }}</div>
     </div>
   </div>
 </template>

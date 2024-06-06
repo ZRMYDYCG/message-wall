@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { wallType,label } from '@/utils/data'
 import YiCard from '@/components/YiCard/index.vue'
+import {reqUserInfo} from "@/api/Home";
 
 // 留言墙与照片墙的切换 id
 const id = ref(0)
@@ -11,6 +12,13 @@ const isLabelSelected = ref(-1)
 const changeLabelItem = (index: number) =>  {
   isLabelSelected.value = index
 }
+
+let cardData = ref([])
+onMounted(() => {
+  reqUserInfo().then((res: any) => {
+    cardData.value = res.data
+  })
+})
 </script>
 
 <template>
@@ -24,7 +32,9 @@ const changeLabelItem = (index: number) =>  {
       </template>
     </ul>
     <div class="card">
-      <yi-card></yi-card>
+      <template v-for="(item, index) in cardData" :key="index">
+        <yi-card class="card-item" :note="item"></yi-card>
+      </template>
     </div>
   </div>
 </template>
@@ -64,6 +74,17 @@ const changeLabelItem = (index: number) =>  {
         border: 1px solid $gray-1;
         border-radius: 14px;
       }
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid red;
+    padding-top: 28px;
+    .card-item {
+      margin: 6px;
     }
   }
 }

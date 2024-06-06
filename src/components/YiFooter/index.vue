@@ -47,6 +47,7 @@
   height: 200px;
   background-color: $gray-1;
   padding: 20px;
+  margin-top: 40px;
 
   .yi-footer-inner {
     width: 1200px;
