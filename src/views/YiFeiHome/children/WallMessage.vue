@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { wallType,label } from '@/utils/data'
+import { wallType, label } from '@/utils/data'
 import YiCard from '@/components/YiCard/index.vue'
 import YiModal from '@/components/YiModal/index.vue'
-import { reqUserInfo } from "@/api/Home";
+import NewCard from './components/NewCard/index.vue'
+import { reqUserInfo } from "@/api/Home"
 
 // 留言墙与照片墙的切换 id
 const id = ref(0)
@@ -96,7 +97,9 @@ const addCardItem = () => {
     <div class="add" @click="addCardItem" v-show="!isModal">
       <span>添加</span>
     </div>
-    <yi-modal @change-modal="changeModal" :title="title" :isModal="isModal"></yi-modal>
+    <yi-modal @change-modal="changeModal" :title="title" :isModal="isModal">
+      <new-card :id="0"></new-card>
+    </yi-modal>
   </div>
 </template>
 

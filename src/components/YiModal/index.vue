@@ -10,7 +10,6 @@ const props = defineProps({
 })
 
 const emits = defineEmits(['change-modal'])
-
 const changeModal = () => {
   emits('change-modal')
 }
