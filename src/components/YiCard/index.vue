@@ -15,10 +15,15 @@ const props = defineProps({
     default: () => {}
   }
 })
+const emits = defineEmits(['item-click'])
+
+const itemClick = () => {
+  emits('item-click', props.note.id)
+}
 </script>
 
 <template>
-  <div class="yi-card" :style="{ width: props.width, background: cardColor[note.imgUrl] }">
+  <div class="yi-card" @click="itemClick" :style="{ width: props.width, background: cardColor[note.imgUrl] }">
     <div class="header">
       <span class="time">{{ dataOne(note.moment) }}</span>
       <span class="label">{{ label[note.type][note.label] }}</span>

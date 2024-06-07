@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { wallType,label } from '@/utils/data'
 import YiCard from '@/components/YiCard/index.vue'
-import {reqUserInfo} from "@/api/Home";
+import YiModal from '@/components/YiModal/index.vue'
+import { reqUserInfo } from "@/api/Home";
 
 // 留言墙与照片墙的切换 id
 const id = ref(0)
@@ -60,6 +61,21 @@ onMounted(() => {
     scrollBottom()
   })
 })
+
+// 关闭窗口
+let title = ref('')
+let isModal = ref(false)
+const changeModal = () => {
+  isModal.value = !isModal.value
+}
+const itemClick = (e:any) => {
+  title.value = '详情'
+  isModal.value = !isModal.value
+}
+const addCardItem = () => {
+  title.value = '写留言'
+  isModal.value = !isModal.value
+}
 </script>
 
 <template>
@@ -74,12 +90,13 @@ onMounted(() => {
     </ul>
     <div class="card" :style="{ width: noteWidth + 'px' }">
       <template v-for="(item, index) in cardData" :key="index">
-        <yi-card class="card-item" :note="item" width="288px"></yi-card>
+        <yi-card @item-click="itemClick" class="card-item" :note="item" width="288px"></yi-card>
       </template>
     </div>
-    <div class="add">
+    <div class="add" @click="addCardItem" v-show="!isModal">
       <span>添加</span>
     </div>
+    <yi-modal @change-modal="changeModal" :title="title" :isModal="isModal"></yi-modal>
   </div>
 </template>
 
