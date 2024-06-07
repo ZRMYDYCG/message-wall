@@ -18,6 +18,9 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
+.yi-button {
+  cursor: pointer;
+}
 // size
 .max {
   min-width: 100px;

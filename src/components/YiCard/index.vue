@@ -18,7 +18,7 @@ const props = defineProps({
 const emits = defineEmits(['item-click'])
 
 const itemClick = () => {
-  emits('item-click', props.note.id)
+  emits('item-click')
 }
 </script>
 
@@ -56,6 +56,7 @@ const itemClick = () => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 
   .header {
     display: flex;

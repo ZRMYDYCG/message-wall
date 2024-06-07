@@ -4,6 +4,7 @@ import { wallType, label } from '@/utils/data'
 import YiCard from '@/components/YiCard/index.vue'
 import YiModal from '@/components/YiModal/index.vue'
 import NewCard from './components/NewCard/index.vue'
+import CardDetail from './components/CardDetail/index.vue'
 import { reqUserInfo } from "@/api/Home"
 
 // 留言墙与照片墙的切换 id
@@ -68,14 +69,32 @@ let title = ref('')
 let isModal = ref(false)
 const changeModal = () => {
   isModal.value = !isModal.value
+  cardSelected.value = -1
+  currentIndex.value = -1
 }
+
 const itemClick = (e:any) => {
-  title.value = '详情'
-  isModal.value = !isModal.value
+  console.log(e)
 }
+
 const addCardItem = () => {
   title.value = '写留言'
   isModal.value = !isModal.value
+}
+
+// 点击查看详情
+let cardSelected = ref(-1)
+let currentIndex = ref(-1)
+const clickDetail = (index: number) => {
+  title.value = '详情'
+  if(cardSelected.value === index) {
+    cardSelected.value = -1
+    isModal.value = !isModal.value
+  } else {
+    isModal.value = true
+    cardSelected.value = index
+    currentIndex.value = index
+  }
 }
 </script>
 
@@ -91,14 +110,15 @@ const addCardItem = () => {
     </ul>
     <div class="card" :style="{ width: noteWidth + 'px' }">
       <template v-for="(item, index) in cardData" :key="index">
-        <yi-card @item-click="itemClick" class="card-item" :note="item" width="288px"></yi-card>
+        <yi-card @click="clickDetail(index)" :class="{ cardSelected: index === cardSelected }" @item-click="itemClick" class="card-item" :note="item" width="288px"></yi-card>
       </template>
     </div>
     <div class="add" @click="addCardItem" v-show="!isModal">
       <span>添加</span>
     </div>
     <yi-modal @change-modal="changeModal" :title="title" :isModal="isModal">
-      <new-card :id="0"></new-card>
+      <new-card :id="0" v-if="title === '写留言'"></new-card>
+      <card-detail v-if="title === '详情'" :item="cardData[currentIndex]"></card-detail>
     </yi-modal>
   </div>
 </template>
@@ -149,6 +169,10 @@ const addCardItem = () => {
 
     .card-item {
       margin: 6px;
+    }
+
+    .cardSelected {
+      border: 1px solid $primary-color;
     }
   }
 
