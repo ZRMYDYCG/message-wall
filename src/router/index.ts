@@ -6,8 +6,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
+      redirect: '/wall?id=0',
       component: import('@/views/YiFeiHome/index.vue'),
-      redirect: '/wall',
       children: [
         {
           path: '/wall',
