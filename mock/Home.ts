@@ -1,5 +1,4 @@
 export default [
-    // 用户登录接口
     {
         url: '/api/home/cardData',
         method: 'get',
