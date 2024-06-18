@@ -8,7 +8,6 @@ import NewCard from './components/NewCard/index.vue'
 import CardDetail from './components/CardDetail/index.vue'
 import PhotoCard from '@/components/PhotoCard/index.vue'
 import YiImgView from '@/components/YiImgView/index.vue'
-import { reqUserInfo } from "@/api/Home"
 
 // 留言墙与照片墙的切换 id
 const route = useRoute()
@@ -24,9 +23,7 @@ const changeLabelItem = (index: number) =>  {
 
 let cardData = ref([])
 onMounted(() => {
-  reqUserInfo().then((res: any) => {
-    cardData.value = res.data
-  })
+
 })
 
 // 卡片宽度
@@ -393,7 +390,7 @@ const clickSwitch = (e: string) => {
       <span>添加</span>
     </div>
     <yi-modal @change-modal="changeModal" :title="title" :isModal="isModal">
-      <new-card :id="0" v-if="title === '写留言'"></new-card>
+      <new-card :id="Number(id)" v-if="title === '写留言'"></new-card>
       <card-detail v-if="title === '详情'" :item="detailData"></card-detail>
     </yi-modal>
     <yi-img-view @click-switch="clickSwitch" :img-url="photoList[currentImgIndex]?.imgUrl" v-show="isImgModal"></yi-img-view>

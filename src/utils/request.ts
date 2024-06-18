@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let request = axios.create({
-    baseURL: import.meta.env.VITE_APP_BASE_API,
+    baseURL: import.meta.env.VITE_SERVER + import.meta.env.VITE_APP_BASE_API,
     timeout: 5000
 })
 

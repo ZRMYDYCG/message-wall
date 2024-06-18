@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { cardColorOptions, cardColor, label } from '@/utils/data'
 import YiButton from '@/components/YiButton/index.vue'
+import { insertWall } from '@/api/Home'
 const props = defineProps({
   id: {
     type: Number,
@@ -21,18 +22,65 @@ let labelSelected = ref(0)
 const changeLabel = (index: number) => {
   labelSelected.value = index
 }
+
+let url = ref('')
+const getObjectUrl = (file: any) => {
+  let res = null
+  if(window.createObjectURL != undefined) {
+    res = window.createObjectURL(file)
+  } else if(window.URL != undefined) {
+    res = window.URL.createObjectURL(file)
+  } else if(window.webkitURL != undefined) {
+    res = window.webkitURL.createObjectURL(file)
+  }
+  return res
+}
+const showPhoto = () => {
+  url.value = getObjectUrl(document.getElementById("file").files[0])
+}
+
+// 发布留言
+let message = ref('')
+let name = ref('')
+const handleInsertWallApi = async () => {
+  const res = await insertWall({
+    type: Number(props.id),
+    message: message.value,
+    name: name.value,
+    userId: 1,
+    moment: new Date(),
+    label: labelSelected.value,
+    color: colorSelected.value,
+    imgUrl: ''
+  })
+  console.log(res)
+}
 </script>
 
 <template>
   <div class="new-card">
-    <ul class="color-list">
+    <ul class="color-list" v-if="id === 0">
       <template v-for="(item, index) in cardColorOptions" :key="index">
         <li @click="changeColor(index)" class="item" :style="{ background: item }" :class="{ selected: index === colorSelected }"></li>
       </template>
     </ul>
-    <div class="card-main" :style="{ background: cardColor[colorSelected] }">
-      <textarea class="message" placeholder="留言..." maxlength="96"></textarea>
-      <input class="name" type="text" placeholder="签名" />
+    <!--  照片  -->
+    <div class="add-photo" v-if="id === 1">
+      <input type="file" name="file" id="file" mutiple="multiple" @change="showPhoto"></input>
+      <div class="add-bt" v-if="url === ''">
+        <span>+</span>
+      </div>
+      <div class="change-bt" v-if="url != ''">
+        <span>+</span>
+      </div>
+      <div class="photo-div">
+        <img :src="url" alt="">
+      </div>
+    </div>
+    <!--  卡片  -->
+    <div class="card-main" v-if="id === 0" :style="{ background: cardColor[colorSelected] }">
+      <textarea class="message" placeholder="留言..." maxlength="96" v-model="message"></textarea>
+      <input class="name" type="text" placeholder="签名" v-model="name" />
     </div>
     <div class="labels">
       <p class="title">请选择标签</p>
@@ -57,7 +105,7 @@ const changeLabel = (index: number) => {
     </div>
     <div class="footer">
       <yi-button size="max" type="secondary">丢弃</yi-button>
-      <yi-button size="max" type="primary" class="confirm">确定</yi-button>
+      <yi-button size="max" type="primary" class="confirm" @click="handleInsertWallApi">确定</yi-button>
     </div>
   </div>
 </template>
@@ -84,6 +132,58 @@ const changeLabel = (index: number) => {
       border: 1px solid rgba(59, 115, 240, 1);
     }
   }
+  .add-photo {
+    padding-bottom: 20px;
+    position: relative;
+
+    #file {
+      position: absolute;
+      z-index: 10;
+      top: -10px;
+      height: 74px;
+      width: 64px;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .add-bt {
+      width: 64px;
+      height: 64px;
+      border: 1px solid $gray-3;
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  .photo-div {
+    max-height: 200px;
+    width: 100%;
+    background: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .change-bt {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .card-main {
     height: 240px;
     width: 100%;

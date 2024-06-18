@@ -1,14 +1,14 @@
 import request  from "@/utils/request"
 
 enum API {
-    INSERT_WALL = '/api/insertWall',
-    INSERT_FEEDBACK = '/api/insertFeedback',
-    INSERT_COMMENT = '/api/insertComment',
-    DELETE_WALL = '/api/deleteWall',
-    DELETE_FEEDBACK = '/api/deleteFeedback',
-    DELETE_COMMENT = '/api/deleteComment',
-    GET_WALLS = '/api/getWalls',
-    GET_COMMENTS = '/api/getComments'
+    INSERT_WALL = '/insertwall',
+    INSERT_FEEDBACK = '/insertFeedback',
+    INSERT_COMMENT = '/insertComment',
+    DELETE_WALL = '/deleteWall',
+    DELETE_FEEDBACK = '/deleteFeedback',
+    DELETE_COMMENT = '/deleteComment',
+    GET_WALLS = '/getWalls',
+    GET_COMMENTS = '/getComments'
 }
 
 export const insertWall = (data: any) => {
