@@ -18,7 +18,7 @@ const changeWall = (id: string) => {
   <div class="YiHeader">
     <div class="logo">
       <img src="@/assets/images/logo.svg" class="logo-img" alt="#">
-      <p class="logo-name">一小池勺</p>
+      <p class="logo-name">一勺同学</p>
     </div>
     <div class="menu">
       <YiButton class="menu-message" @click="changeWall('0')" :type="currentViewId === '0' ? 'c-primary' : 'c-secondary'">留言墙</YiButton>
