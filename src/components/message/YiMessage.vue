@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defilesProps({
+const props = defineProps({
   message: {
     type: String,
     default: ''
